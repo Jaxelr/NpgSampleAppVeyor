@@ -1,0 +1,18 @@
+version: '{build}'
+image: Visual Studio 2019
+branches:
+  only:
+  - master
+init:
+  - cmd: git config --global core.autocrlf true
+configuration:
+  - Release
+services:
+- postgresql
+before_build:
+  - cmd: dotnet --version
+  - choco install codecov  
+build_script:
+  - cmd: dotnet build .
+test_script:
+  - cmd: dotnet test .
