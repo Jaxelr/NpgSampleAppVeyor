@@ -1,6 +1,7 @@
 using Npgsql;
 using System;
 using Xunit;
+using Dapper;
 
 namespace NpgSampleAppVeyorTests
 {
@@ -10,16 +11,17 @@ namespace NpgSampleAppVeyorTests
         public void Test1()
         {
             string postgresConnEnv = Environment.GetEnvironmentVariable("Postgres_Connection");
-            // if (string.IsNullOrEmpty(postgresConnEnv))
-            // {
-            //     postgresConnEnv = $"Server=localhost;Port=5432;Database=postgres;Integrated Security=true;Username=postgres";
-            // }
+            if (string.IsNullOrEmpty(postgresConnEnv))
+            {
+                postgresConnEnv = $"Server=localhost;Port=5432;Database=postgres;Integrated Security=true;Username=postgres";
+            }
 
             var conn = new NpgsqlConnection(postgresConnEnv);
 
             conn.Open();
 
             Assert.NotNull(conn);
+            Assert.Equal(1, conn.QueryFirst<int>("SELECT 1"));
         }
     }
 }
