@@ -9,7 +9,7 @@ namespace NpgSampleAppVeyorTests
         [Fact]
         public void Test1()
         {
-            string postgresConnEnv = Environment.GetEnvironmentVariable("Pg_Connection");
+            string postgresConnEnv = Environment.GetEnvironmentVariable("Postgres_Connection");
             // if (string.IsNullOrEmpty(postgresConnEnv))
             // {
             //     postgresConnEnv = $"Server=localhost;Port=5432;Database=postgres;Integrated Security=true;Username=postgres";
