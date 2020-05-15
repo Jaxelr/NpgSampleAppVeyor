@@ -11,12 +11,10 @@ services:
 - postgresql
 before_build:
   - cmd: dotnet --version
-  - cmd: SET PGPASSWORD=Password12!
-  - cmd: echo %PATH%
 build_script:
   - cmd: dotnet build .
 test_script:
   - cmd: dotnet test .
 environment:
   pg_connection:
-    secure: YW0OmwTb/Q3byjNiJzsXc4UN5JJRbI3uYItkJPLB3F1vGKkwyR8d3VzpAxYldjhp3PZCRzF8aoUNMrlz5GJXazO7KGxas4YWXP7OirDBibHpj3xDm0bgSGHTCSm9l/WB
+    secure: YW0OmwTb/Q3byjNiJzsXc4UN5JJRbI3uYItkJPLB3F1vGKkwyR8d3VzpAxYldjhp3PZCRzF8aoUNMrlz5GJXazO7KGxas4YWXP7OirDBibEC6Pn4MZM0XECIHWTkmUCc8mLa6sZRsWXcG5t+NRXa2w==
