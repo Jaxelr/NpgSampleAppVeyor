@@ -34,5 +34,17 @@ namespace NpgSampleAppVeyorTests
             Assert.NotNull(conn);
             Assert.Equal(1, conn.QueryFirst<int>("SELECT 1"));
         }
+
+        [Theory]
+        [MemberData(nameof(GetData))]
+        public void Test2(string connectionString)
+        {
+            var conn = new NpgsqlConnection(connectionString);
+
+            conn.Open();
+
+            Assert.NotNull(conn);
+            Assert.Equal(2, conn.QueryFirst<int>("SELECT 2"));
+        }
     }
 }
