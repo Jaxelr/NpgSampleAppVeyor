@@ -11,6 +11,7 @@ services:
 - postgresql
 before_build:
   - cmd: dotnet --version
+  - cmd: echo %postgres_connection%
 build_script:
   - cmd: dotnet build .
 test_script:
